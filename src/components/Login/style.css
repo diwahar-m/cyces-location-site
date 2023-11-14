@@ -1,0 +1,42 @@
+.login-container{
+    background-image: linear-gradient(yellow, red); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+} 
+
+form{
+    background-color: white; 
+    border:2px solid blue; 
+    border-radius: 4px;
+    padding: 25px; 
+} 
+label{
+   display: flex; 
+}
+input{
+    display: block; 
+    margin-bottom: 2px; 
+    width: 95%; 
+    height: 25px; 
+    margin-top: 4px;
+} 
+button{ 
+    background-color:#ed5d09; 
+    color:white;  
+    font-size: bold;
+    width: 95%; 
+    height: 35px; 
+    border-width: 0px; 
+    border-radius: 5px; 
+    margin-top: 5px;
+} 
+span{
+    color: red;
+} 
+.error{
+    color: red;
+    font-weight: bold; 
+    width: 60%;
+}
