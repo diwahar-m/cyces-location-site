@@ -2,8 +2,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"; 
 import ListItem from "../List_item"; 
 import './style.css';
+import { useNavigate } from "react-router-dom";
 
 export default function ListPage(){
+
+    const navigate = useNavigate();
 
     const [locations,updateLocations] = useState([]);
 
@@ -30,7 +33,10 @@ export default function ListPage(){
                 <h2>TRAVEL APP</h2> 
             </div> 
             <div className='list-items'> 
-                <h2 className="head">Around the world</h2> 
+                <div className="list-head">
+                    <h2 className="head">Around the world</h2> 
+                    <button className="create-button" type='button' onClick={()=>{ navigate('/create-page')}}>Create Location</button>
+                </div>
                 <div className="locations-list">
                     {locations && locations.map( eachLocation =>(
                         <ListItem key={eachLocation.id} locationData={eachLocation}/> 

@@ -10,10 +10,10 @@ export default function DetailPage(){
     const location = useLocation(); // to get data from parent component
     const navigate = useNavigate(); // to redirect to another component
 
-    const [ locationState, updateLocation] = useState([]);
+    const [ locationState, updateLocation] = useState({});
 
     
-
+    // delete backend api not working
     const deleteLocation = async()=>{
         
         try{
@@ -34,13 +34,17 @@ export default function DetailPage(){
         console.log('LOCATION NAME: ', locationData.name);
 
         const getLocation = async()=>{
-            // get method of single location not working @ the backend
-            // const response1 = await axios.get(`${baseUrl}/api/attractions/:${locationData.id}`) 
-            // console.log('Getting a single location detail by get method: ', response1);
-            // updateLocation(response1) ;
-            // console.log( locationState); 
+            try{
+                const response1 = await axios.get(`${baseUrl}/api/attractions/${locationData.id}`) 
+                const locationSite = await response1.data.attraction ;
+                console.log('Single location: ', response1);
+                updateLocation(locationSite) ;
+                console.log( locationState); 
 
-            updateLocation(locationData)
+            }catch(err){
+                console.log('Error while fetching detailed page of location: ', err)
+            }
+            
         } 
         getLocation();
     },[])
@@ -51,18 +55,24 @@ export default function DetailPage(){
        
             <div key={locationState.id} className="detail-page">
                 <div className="detail-head"> 
-                    <h1>Detail page</h1>
+                    <div className="back-container">
+                        <h1>Detail page</h1> 
+                        <button type="button" className="back-button" onClick={()=>{navigate('/list-page')}}>
+                            Back
+                        </button>
+                    </div>
+                    
                     <hr/> 
                 </div>
                 
                 <div className="detail-page-list">
-                    <h2>{locationState.name}</h2>
-                    <img src={locationState.coverimage} alt={locationState.id} /> 
+                    <h2 className="location-name">{locationState.name}</h2>
+                    <img src={locationState.coverimage}  alt={locationState.id} /> 
                     <div className="detail-container">
-                        <p>{locationState.detail}</p> 
+                        <p className="p-detail">{locationState.detail}</p> 
                         <div className="button-container">
-                            <button type='button'>EDIT</button> 
-                            <button type='button' onClick={deleteLocation}>DELETE</button> 
+                            <button className="edit-button" type='button'>EDIT</button> 
+                            <button className='delete-button' type='button' onClick={deleteLocation}>DELETE</button> 
                         </div>
                     </div>
                     

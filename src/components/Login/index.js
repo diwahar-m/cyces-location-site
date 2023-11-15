@@ -25,6 +25,10 @@ export default function Login(){
 
     const submittingForm = async(event)=>{ 
         event.preventDefault(); 
+        if(email==='' || password===''){
+            updateError('*Please fill all the details'); 
+            return ;
+        } 
         try{
             let response = await axios.post(`${baseUrl}/api/login`,{
                 "username": email,
@@ -53,18 +57,24 @@ export default function Login(){
   return (
     
       <div className="login-container">
-        <form onSubmit={submittingForm}>
-          <h1>CRUD OPERATIONS</h1> 
-          <h4>SIGN IN</h4> 
-          <p>Enter your credentials to access your account</p>
-          <label>Email</label>
-          <input type='email' onChange={changeMail} value={email} /> 
-          <label>Password</label>
-          <input type='password' onChange={changePassword} value={password}/> 
-          <button  type='submit' >SIGN IN</button>
-          <p className="error">{error}</p>
-          <p>Forgot your password? <span> Reset Password</span></p>
-        </form> 
+        <div className="form-container">
+            <form onSubmit={submittingForm}>
+                <h1>CRUD OPERATIONS</h1> 
+                <h4>SIGN IN</h4> 
+                <p className="credential">Enter your credentials to access your account</p>
+                <label htmlFor="email">Email</label>
+                <input type='email' placeholder="Enter your name" name="email" onChange={changeMail} value={email} /> 
+                <label htmlFor="password">Password</label>
+                <input type='password' placeholder="Enter your password" name="password" onChange={changePassword} value={password}/> 
+                <button className="button"  type='submit' >SIGN IN</button>
+                <p className="error">{error}</p>
+                <div className="forgot-container">
+                    <p class="forgot-password">Forgot your password? </p>
+                    <p className="reset-password"> Reset Password</p>
+                </div>
+                
+            </form> 
+        </div>
 
 
       </div>
