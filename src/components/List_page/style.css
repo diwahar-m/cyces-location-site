@@ -1,11 +1,12 @@
 .list-container{
     display:flex; 
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
     background-size: cover ;
-    
     background-color: #edf5ef;
-    padding-bottom: 40px;
+    padding: 0 0 40px 0;
+    margin: 0 !important;
+    border-radius: 0;
 } 
 .header{
     display: flex; 
@@ -24,34 +25,56 @@ h2{
     align-items: center;
 } 
 .head{
-    margin-left: 20px;
-    margin-right: auto;
     color:#325eed;  
-    display: flex;
-    
+    font-size: 100%;
+    margin-left: 6px;
 } 
+
 .locations-list{
+    
     display: flex; 
-    gap: 20px;
-    flex-wrap: wrap;
-    width: 88%;  
-    margin-left: 30px;
-} 
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap; 
+    row-gap: 20px; 
+    column-gap: 20px;
+}
+
 .list-head{
     display: flex; 
-    width: 100%;
     justify-content: space-between;
+    align-items: center ;
+    margin: 20px 4px 20px 4px;
+    
 } 
 .create-button{ 
     background-color:#ed5d09; 
     color:white;  
     font-weight: bold;
-    width: 10% !important; 
+    font-size: 75%;
     height: 35px; 
     border-width: 0px; 
-    border-radius: 5px; 
-    margin: 25px ;
+    border-radius: 5px;  
+    margin-right: 6px;
 } 
 .create-button:hover{
     box-shadow: 2px 2px #f29c55;
+} 
+ @media screen and (max-width: 767px){
+    .head{
+        font-size: 20px;
+        
+    }
+    .create-button{
+        font-size: 17px;
+    }
+}
+@media screen and (min-width: 768px){
+    .head{
+        font-size: 30px;
+    }
+    .create-button{
+        font-size: 24px;
+        height: 45px; 
+    }
 }

@@ -68,40 +68,43 @@ export default function CreatePage(){
     }
 
     return(
-        <div className='createpage-container'>
+        <div className='createpage-container contsiner'> 
+            <div className='row'>
+
+                <div className="col-12 input-image-container">
+                    <p>Given image :</p>
+                    <img id='img1' alt='wait' className="input-image" />
+                </div>
                 
-            <div className="input-image-container">
-                <p>Given image :</p>
-                <img id='img1' alt='wait' className="input-image" />
+                
+                <div className="col-12 shadow-lg createpage-form-container">
+                    <h2 className="location-head">CREATE THE LOCATION</h2> 
+                    <form onSubmit={submitForm}>
+                        <label htmlFor='name'>Name:</label>
+                        <input type='text' id='name' onChange={inputHandler}/>
+
+                        <label htmlFor='detail'>Detail:</label>
+                        <textarea id="detail" rows="8" cols="170" onChange={inputHandler}></textarea>
+
+                        <label htmlFor='coverimage'>Cover-Image:</label>
+                        <input type='file' id='coverimage' accept=".png, .jpeg, .jpg" onChange={inputHandler}/>
+
+                        <label htmlFor='latitude'>latitute:</label>
+                        <input type='number' step="0.0000001" id='latitude' onChange={inputHandler}/>
+
+                        <label htmlFor='longitude'>longitude:</label>
+                        <input type='number' id='longitude' step="0.0000001" onChange={inputHandler}/> 
+
+                        <p>{error}</p>
+                        <div className="create-button-container">
+                            <button className="create-button" type='submit'> Create</button>
+                        </div>
+
+                    </form>
+                </div>
+                
             </div>
-               
-            
-            <div className="createpage-form-container">
-                <h2 className="location-head">CREATE THE LOCATION</h2> 
-                <form onSubmit={submitForm}>
-                    <label htmlFor='name'>Name:</label>
-                    <input type='text' id='name' onChange={inputHandler}/>
-
-                    <label htmlFor='detail'>Detail:</label>
-                    <textarea id="detail" rows="8" cols="170" onChange={inputHandler}></textarea>
-
-                    <label htmlFor='coverimage'>Cover-Image:</label>
-                    <input type='file' id='coverimage' accept=".png, .jpeg, .jpg" onChange={inputHandler}/>
-
-                    <label htmlFor='latitude'>latitute:</label>
-                    <input type='number' step="0.0000001" id='latitude' onChange={inputHandler}/>
-
-                    <label htmlFor='longitude'>longitude:</label>
-                    <input type='number' id='longitude' step="0.0000001" onChange={inputHandler}/> 
-
-                    <p>{error}</p>
-                    <div className="create-button-container">
-                        <button className="create-button" type='submit'> Create</button>
-                    </div>
-
-                </form>
-            </div>
-            
+                
 
         </div>
 

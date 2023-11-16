@@ -7,10 +7,10 @@ export default function ListItem(props){
 
 
     return(
-        <div className="item"> 
-            <img className='image' src={locationData.coverimage} alt={locationData.id} key={locationData.id}/> 
-            <div className='item-details'>
-                <h4>{locationData.name}</h4> 
+        <div className="item shadow-lg col-3"> 
+            <img className='image w-100 ' src={locationData.coverimage} alt={locationData.id} key={locationData.id}/> 
+            <div className='item-details mt-2'>
+                <h4 className='list-item-head ' >{locationData.name}</h4> 
                 <p className='detail-para'>{locationData.detail}</p>
                
                 <Link to="/detail-page" state={{locationsData: locationData}}>

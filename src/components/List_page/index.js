@@ -28,23 +28,27 @@ export default function ListPage(){
     },[])
 
     return(
-        <div className="list-container"> 
-            <div className="header"> 
-                <h2>TRAVEL APP</h2> 
+        <div className="list-container container-fluid"> 
+            <div className="header w-100 "> 
+                <h2 >TRAVEL APP</h2> 
             </div> 
-            <div className='list-items'> 
-                <div className="list-head">
-                    <h2 className="head">Around the world</h2> 
-                    <button className="create-button" type='button' onClick={()=>{ navigate('/create-page')}}>Create Location</button>
+            <div className='list-items '> 
+                <div className="list-head w-100  ">
+                    <h2 className="head w-50 col-3 ">Around the world</h2> 
+                    <button className="col-3 w-25 create-button w-md-100" type='button' onClick={()=>{ navigate('/create-page')}}>Create</button>
                 </div>
-                <div className="locations-list">
-                    {locations && locations.map( eachLocation =>(
-                        <ListItem key={eachLocation.id} locationData={eachLocation}/> 
-                       
-                    ))}
-                </div>
+                
+                    <div className="locations-list ">
+                        {locations && locations.map( eachLocation =>(
+                            
+                            <ListItem   locationData={eachLocation}/> 
+                        ))}
+                    </div>
+                
+                
             </div>        
         </div>
     ) 
 
-}
+} 
+

@@ -2,9 +2,8 @@
    display: flex; 
    flex-direction: column; 
    border-radius: 10px; 
-   width:31%;
    background-color: white;
-   padding-bottom: 10px;
+   padding: 10px;
 }
 .item:hover{
    margin-top: -10px; 
@@ -12,7 +11,6 @@
 }
 .image{
    border-radius: 10px;
-   width: 100%;
    
 } 
 .detail-para{
@@ -40,4 +38,40 @@
 }
 .learn-button:hover{
    color: #0723f2;
+} 
+@media (min-width:768px) and (max-width: 992px){
+   .item{
+      width: 40% ;
+   }
+} 
+@media (max-width:768px) {
+   .item{
+      width: 60% ;
+   }
+}
+@media (min-width: 768px){
+   
+   .list-item-head{
+      font-size: 20px; 
+      font-weight: bold;
+   }
+   .detail-para{
+       font-size: 14px;
+   }
+   .learn-button{
+      font-size: 12px;
+   }
+} 
+
+@media (min-width: 1200px){
+   .list-item-head{
+      font-size: 25px; 
+      font-weight: bold;
+   }
+   .detail-para{
+       font-size: 18px;
+   }
+   .learn-button{
+      font-size: 15px;
+   }
 }
